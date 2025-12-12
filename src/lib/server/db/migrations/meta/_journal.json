@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1765396422386,
+      "tag": "0000_amusing_mastermind",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1765489454375,
+      "tag": "0001_gifted_sheva_callister",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1765497530332,
+      "tag": "0002_smiling_jack_flag",
+      "breakpoints": true
+    }
+  ]
+}
