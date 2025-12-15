@@ -13,7 +13,7 @@
       },
       {
         onSuccess: () => {
-          goto("/");
+          goto("/app");
         },
         onError: (ctx) => {
           console.error("Registration error:", ctx.error.message);
@@ -32,3 +32,4 @@
   <input type="password" name="password" id="" placeholder="Password" />
   <button onclick={registerWithEmailAndPassword}>Register</button>
 </div>
+<p>Already registered? <a href="/login">Login</a></p>

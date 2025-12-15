@@ -16,7 +16,7 @@
         email: "john.doe@email.com", // required
         password: "12345678", // required
         rememberMe: true,
-        callbackURL: "/",
+        callbackURL: "/app",
       },
       {
         onError: (ctx) => {
