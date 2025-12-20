@@ -1,0 +1,1 @@
+ALTER TABLE `guestbook_messages` ADD `image` text;

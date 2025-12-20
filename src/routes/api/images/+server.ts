@@ -1,5 +1,6 @@
 import { json, error } from "@sveltejs/kit";
 import { env } from "$env/dynamic/private";
+import type { GetImageURLUploadResponse } from "$lib/types/images";
 
 //TODO: Create this validation for the image
 // You can upload the following image formats to Cloudflare Images:
@@ -45,22 +46,4 @@ export async function POST() {
 
   //Return the direct_upload url
   return json({ uploadURL: data.result.uploadURL }, { status: 201 });
-}
-
-/**
- * Type for upload result
- */
-export interface UploadResult {
-  id: string;
-  uploadURL: string;
-}
-
-/**
- * Type for image upload URL response
- */
-export interface GetImageURLUploadResponse {
-  result: UploadResult;
-  success: boolean;
-  errors: string[];
-  messages: string[];
 }

@@ -13,6 +13,7 @@ export const guestbookMessages = sqliteTable("guestbook_messages", {
   id: integer().primaryKey(),
   message: text().notNull(),
   country: text(),
+  image: text(),
   createdAt: text("created_at", { mode: "text" })
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),

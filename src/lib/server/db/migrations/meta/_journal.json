@@ -22,6 +22,13 @@
       "when": 1765497530332,
       "tag": "0002_smiling_jack_flag",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1766260725537,
+      "tag": "0003_premium_gertrude_yorkes",
+      "breakpoints": true
     }
   ]
 }

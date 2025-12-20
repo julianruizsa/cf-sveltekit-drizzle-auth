@@ -33,6 +33,33 @@ export const actions: Actions = {
   //     success: true,
   //   };
   // },
+  createMessageWithImage: async ({ request, platform, locals }) => {
+    const formData = await request.formData();
+    const message = formData.get("message");
+    const image = formData.get("image");
+    const country = platform?.cf?.country ?? "Unknown";
+
+    if (!message) {
+      //Whatever returned will be available in the form prop in the page
+      return fail(400, {
+        errors: {
+          message: "Message is required",
+        },
+      });
+    }
+
+    await locals.db.insert(guestbookMessages).values({
+      message: (message as string) + " (created with createMessage action)",
+      country: country as string,
+      image: image as string,
+      userId: locals.user.id,
+    });
+
+    //Whatever returned will be available in the form prop in the page
+    return {
+      success: true,
+    };
+  },
   createMessageWithAction: async ({ request, platform, locals }) => {
     const formData = await request.formData();
     const message = formData.get("message");
