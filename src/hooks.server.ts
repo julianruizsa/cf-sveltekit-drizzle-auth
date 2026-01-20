@@ -1,6 +1,5 @@
 import { redirect, type Handle, error } from "@sveltejs/kit";
 import { svelteKitHandler } from "better-auth/svelte-kit";
-import { env } from "$env/dynamic/private";
 import { getDb } from "$lib/server/db";
 import { getAuth } from "$lib/auth";
 import { building } from "$app/environment";
@@ -22,7 +21,11 @@ function isProtectedRoute(pathname: string) {
 }
 
 export const handle: Handle = async ({ event, resolve }) => {
-  const db = getDb(event.platform?.env?.DB, env.DATABASE_URL);
+  //If no D1 db configured, no app will run
+  if (!event.platform?.env.DB) {
+    throw new Error("no database configuration found");
+  }
+  const db = getDb(event.platform.env.DB);
   const auth = getAuth(db);
 
   event.locals.db = db;
