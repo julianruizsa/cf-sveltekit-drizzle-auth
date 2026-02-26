@@ -5,6 +5,7 @@ import { env } from "$env/dynamic/private";
 
 export function getAuth(db: DrizzleClient) {
   return betterAuth({
+    baseURL: env.BETTER_AUTH_URL,
     database: drizzleAdapter(db, {
       provider: "sqlite", // or "mysql", "sqlite"
     }),
